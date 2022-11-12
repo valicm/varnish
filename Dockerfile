@@ -141,6 +141,15 @@ RUN set -ex; \
     if [[ "${TARGETPLATFORM}" != "linux/arm64" ]]; then \
         make check; \
     fi; \
+    # Add querystring module
+    git clone --depth 1 -b 6.0 --single-branch https://github.com/Dridi/libvmod-querystring /tmp/libvmod-querystring; \
+    cd /tmp/libvmod-querystring; \
+    ./configure; \
+    make; \
+    make install; \
+    if [[ "${TARGETPLATFORM}" != "linux/arm64" ]]; then \
+        make check; \
+    fi; \
     \
     install -d -o varnish -g varnish -m750 \
 		/var/cache/varnish \
