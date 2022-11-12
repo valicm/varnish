@@ -141,7 +141,7 @@ RUN set -ex; \
     if [[ "${TARGETPLATFORM}" != "linux/arm64" ]]; then \
         make check; \
     fi; \
-    # Add querystring module
+    # Add querystring module.
     git clone --depth 1 -b 6.0 --single-branch https://github.com/Dridi/libvmod-querystring /tmp/libvmod-querystring; \
     cd /tmp/libvmod-querystring; \
     ./configure; \
